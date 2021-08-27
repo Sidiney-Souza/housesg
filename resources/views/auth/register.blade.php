@@ -27,6 +27,15 @@
                 <x-input id="idade" class="block mt-1 w-full" type="number" name="idade" :value="old('idade')"/>
             </div>
 
+            
+             <!-- contato -->
+            <div>
+                <x-label for="contato" :value="__('contato')" />
+
+                <x-input id="contato" class="block mt-1 w-full" type="text" name="contato" :value="old('contato')"/>
+            </div>
+
+             
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ require __DIR__.'/auth.php';
 Route::post('produto/search', [ProdutoController::class, 'search'])->name('produto.search');
 
 Route::resource('/produto', ProdutoController::class);
+Route::resource('/user', UserController::class);
