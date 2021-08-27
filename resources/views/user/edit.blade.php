@@ -18,9 +18,9 @@ and open the template in the editor.
             <input type="text" name="nome" value="{{$usuario->nome}}"><br>
             Idade:
             <input type="number" name="idade" value="{{$usuario->idade}}"><br>
-            E-mail:
-            <input type="text" name="email" value="{{$usuario->email}}"><br>
             Contato:
+            <input type="text" name="contato" value="{{$usuario->contato}}"><br>
+            E-mail:
             <input type="text" name="contato"value="{{$usuario->contato}}"><br>
             Senha:
             <input type="password" name="senha" value="{{$usuario->senha}}"><br>

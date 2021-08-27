@@ -11,15 +11,14 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Detalhes do usuário</h1>
-        Id: {{$usuario->id}}<br>
-        Nome:{{$usuario->nome}}<br>
-        idade: {{$usuario->idade}}<br>
-        email: {{$usuario->email}}<br>
-        contato: {{$usuario->contato}}<br>
-        senha: {{$usuario->senha}}<br>
-        Data do cadastro: {{$usuario->created_at}}<br>
-        hora de atualização: {{$usuario->update_at}}<br>
+        Id: {{$user->id}}<br>
+        Nome:{{$user->nome}}<br>
+        Idade: {{$user->idade}}<br>
+        Contato: {{$user->contato}}<br>
+        E-mail: {{$user->email}}<br>
+        Data do cadastro: {{$user->created_at}}<br>
+        hora de atualização: {{$user->update_at}}<br>
         <br><br>
-        <a href='{{route('usuario.index')}}'>Voltar</a>
+        <a href='{{route('user.index')}}'>Voltar</a>
     </body>
 </html>
