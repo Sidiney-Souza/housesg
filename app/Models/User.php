@@ -44,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+        public function buscaPorNome(string $name = '') {
+        return $this->where('name', 'like', "%$name%")->get();
+    }
+    
 }

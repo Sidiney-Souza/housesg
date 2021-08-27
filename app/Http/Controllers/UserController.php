@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -36,8 +42,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'idade' => 'required',
+            'contato' => 'required',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
 
+        $user = User::create([
+            'name' => $request->name,
+            'idade' => $request->idade,
+            'contato' => $request->contato,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        
         if ($user) {
             \Session::flash('msg', "usuario {$user->name} foi  salvo");
         } else {
@@ -63,7 +83,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(user $user)
     {
         return view('user.edit', ['user' => $user]);
     }
@@ -75,7 +95,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, user $user)
     {
         $user->update($request->all());
 
@@ -90,12 +110,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         if ($user->delete()) {
-            \Session::flash('msg', "usuario {$name} removido");
+            \Session::flash('msg', "usuario foi removido");
         } else {
-            \Session::flash('msg', "usuario {$name} não foi removido");
+            \Session::flash('msg', "usuario foi não foi removido");
         }
         return redirect()->route("user.index");
     }

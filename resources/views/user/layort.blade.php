@@ -15,7 +15,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('produto.index')}}">House's G</a>
+                <a class="navbar-brand" href="#">House's G</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +44,7 @@
                     </ul>
                     <form action="{{route('user.search')}}" method="POST" class="d-flex">
                         @csrf
-                        <input class="form-control me-2" type="search" name="nome" placeholder="Busca por nome" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="name" placeholder="Digite algo..." aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
                     </form>
                 </div>

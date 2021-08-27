@@ -13,7 +13,7 @@
         @foreach($user as $user)    
           
          Id: {{$user->id}},
-         Nome: {{$user->nome}} - 
+         Nome: {{$user->name}} - 
         <a href='{{route('user.show', ['user'=>$user])}}'>Detalhes</a>
         <a href='{{route('user.edit', ['user'=>$user])}}'>Editar</a>
         <br>

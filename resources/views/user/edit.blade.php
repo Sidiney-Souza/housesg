@@ -10,20 +10,20 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>Alteralção do usuario{{$usuario->nome}}</h1>
-        <form action="{{route('usuario.update', ['usuario'=>$usuario])}}" method="POST" >
+        <h1>Alteralção do usuario{{$user->name}}</h1>
+        <form action="{{route('user.update', ['user'=>$user])}}" method="POST" >
             @csrf
             @method('PATCH')
             Nome:
-            <input type="text" name="nome" value="{{$usuario->nome}}"><br>
+            <input type="text" name="name" value="{{$user->name}}"><br>
             Idade:
-            <input type="number" name="idade" value="{{$usuario->idade}}"><br>
+            <input type="number" name="idade" value="{{$user->idade}}"><br>
             Contato:
-            <input type="text" name="contato" value="{{$usuario->contato}}"><br>
+            <input type="text" name="contato" value="{{$user->contato}}"><br>
             E-mail:
-            <input type="text" name="contato"value="{{$usuario->contato}}"><br>
-            Senha:
-            <input type="password" name="senha" value="{{$usuario->senha}}"><br>
+            <input type="text" name="email"value="{{$user->email}}"><br>
+<!--            Senha:
+            <input type="password" name="senha" value="{{$user->password}}"><br>-->
             <input type="submit" name="Guardar"><br>
         </form>
             

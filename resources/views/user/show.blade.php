@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <h1>Detalhes do usuário</h1>
         Id: {{$user->id}}<br>
-        Nome:{{$user->nome}}<br>
+        Nome:{{$user->name}}<br>
         Idade: {{$user->idade}}<br>
         Contato: {{$user->contato}}<br>
         E-mail: {{$user->email}}<br>
