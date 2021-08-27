@@ -33,7 +33,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('produto.index')}}">Produtos</a></li>
-                                <li><a class="dropdown-item" href="{{route('usuario.index')}}">Usuários</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.index')}}">Usuários</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
@@ -42,7 +42,7 @@
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <form action="{{route('usuario.search')}}" method="POST" class="d-flex">
+                    <form action="{{route('user.search')}}" method="POST" class="d-flex">
                         @csrf
                         <input class="form-control me-2" type="search" name="nome" placeholder="Busca por nome" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Pesquisar</button>

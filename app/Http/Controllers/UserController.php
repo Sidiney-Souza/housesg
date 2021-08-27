@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('user.index', ['user' => $user]);
+        return view('user.user', ['user' => $user]);
     }
 
     /**
@@ -64,7 +65,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -76,7 +77,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user->update($request->all());
+
+        $msg = "usuario {$user->name} alterado com sucesso";
+
+        return redirect()->route("user.index")->with('msg', $msg);
     }
 
     /**
@@ -87,6 +92,23 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if ($user->delete()) {
+            \Session::flash('msg', "usuario {$name} removido");
+        } else {
+            \Session::flash('msg', "usuario {$name} não foi removido");
+        }
+        return redirect()->route("user.index");
     }
+    
+    public function search(Request $request) {
+        if ($request->name) {
+            $user = (new User())->buscaPorNome($request->name);
+        } else {
+            $user = User::all();
+        }
+
+        return view('user.user', ['user' => $user]);
+    }
+    
+    
 }

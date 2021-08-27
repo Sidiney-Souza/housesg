@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::post('produto/search', [ProdutoController::class, 'search'])->name('produto.search');
+Route::post('user/search', [UserController::class, 'search'])->name('user.search');
 
 Route::resource('/produto', ProdutoController::class);
 Route::resource('/user', UserController::class);
