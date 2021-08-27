@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>Alteralção do usuario{{$user->name}}</h1>
+        <h1>Alteralção do usuario(a) {{$user->name}}</h1>
         <form action="{{route('user.update', ['user'=>$user])}}" method="POST" >
             @csrf
             @method('PATCH')

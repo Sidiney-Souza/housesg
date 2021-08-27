@@ -39,6 +39,13 @@ class ProdutoController extends Controller
     {
         $produto = Produto::create($request->all());
 
+            $request->validate([
+            'nume' => 'required',
+            'qtd' => 'required',
+            'preco' => 'required',
+            'foto' => 'required',
+        ]);
+        
         if ($produto) {
             \Session::flash('msg', "O produto {$produto->nome} foi  adcionado");
         } else {

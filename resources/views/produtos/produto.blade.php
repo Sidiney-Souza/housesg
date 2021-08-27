@@ -12,8 +12,8 @@
         
         @foreach($produto as $produto)      
           
-         Id: {{$produto->id}},
-         Nome: {{$produto->nome}} - 
+         Nome: {{$produto->nome}}  <br>
+         Preço: {{$produto->preco}} - 
         <a href='{{route('produto.show', ['produto'=>$produto])}}'>Detalhes</a>
         <a href='{{route('produto.edit', ['produto'=>$produto])}}'>Editar</a>
         <br>
@@ -21,6 +21,7 @@
             @csrf
             @method('DELETE')
             <input type="submit" value="Deletar produto"><br>
+            <br><br><br>
         </form>
         
         @endforeach

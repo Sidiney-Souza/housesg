@@ -16,13 +16,13 @@ and open the template in the editor.
             Nome:
             <input type="text" name="nome"><br>
             Quantidade:
-            <input type="text" name="qtd"><br>
+            <input type="number" name="qtd"><br>
             Preço:
-            <input type="text" name="preco"><br>
+            <input type="number" step="0.01" name="preco"><br>
             Imagens:
             <input type="text" name="foto"><br>
             <input type="submit" name="Salvar"><br>
-        </form>
-            
+        </form><br><br><br>
+            <a href='{{route('produto.index')}}'>Voltar</a>
     </body>
 </html>

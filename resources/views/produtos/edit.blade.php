@@ -17,9 +17,9 @@ and open the template in the editor.
             Nome:
             <input type="text" name="nome" value="{{$produto->nome}}"><br>
             Quantidade:
-            <input type="text" name="qtd" value="{{$produto->qtd}}"><br>
+            <input type="number" name="qtd" value="{{$produto->qtd}}"><br>
             Preço:
-            <input type="text" name="preco" value="{{$produto->preco}}"><br>
+            <input type="number" step='0.01' name="preco" value="{{$produto->preco}}"><br>
             Foto:
             <input type="text" name="foto"value="{{$produto->foto}}"><br>
             <input type="submit" name="Salvar"><br>
