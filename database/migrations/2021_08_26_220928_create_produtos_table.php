@@ -18,7 +18,7 @@ class CreateProdutosTable extends Migration
               $table->string('nome');
             $table->string('qtd');
             $table->string('preco');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

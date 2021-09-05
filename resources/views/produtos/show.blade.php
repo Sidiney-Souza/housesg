@@ -15,7 +15,7 @@ and open the template in the editor.
         Nome:{{$produto->nome}}<br>
         Quantidade: {{$produto->qtd}}<br>
         Preço: {{$produto->preco}}<br>
-        foto: {{$produto->foto}}<br>
+        Foto:<br><img width="300px" src="{{$produto->foto}}"><br>
         Data do cadastro: {{$produto->created_at}}<br>
         hora de atualização: {{$produto->update_at}}<br>
         <br><br>

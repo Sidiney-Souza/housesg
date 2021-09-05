@@ -11,7 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Novo Produto</h1>
-        <form method="post" action="{{route('produto.store')}}" >
+        
+        @if($msg = session('msg'))
+            <p style="color: {{$msg[1]}};">{{$msg[0]}}</p>
+        @endif
+        
+        <form method="post" action="{{route('produto.store')}}" enctype="multipart/form-data">
             @csrf
             Nome:
             <input type="text" name="nome"><br>
@@ -19,8 +24,8 @@ and open the template in the editor.
             <input type="number" name="qtd"><br>
             Preço:
             <input type="number" step="0.01" name="preco"><br>
-            Imagens:
-            <input type="text" name="foto"><br>
+            Foto:
+            <input type="file" name="foto"><br>
             <input type="submit" name="Salvar"><br>
         </form><br><br><br>
             <a href='{{route('produto.index')}}'>Voltar</a>

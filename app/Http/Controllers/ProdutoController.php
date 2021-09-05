@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
-{
+class ProdutoController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $produto = Produto::all();
-        
+
         return view('produtos.produto', ['produto' => $produto]);
     }
 
@@ -24,8 +23,7 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         return view('produtos.create');
     }
 
@@ -35,23 +33,27 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $produto = Produto::create($request->all());
-
-            $request->validate([
-            'nume' => 'required',
+    public function store(Request $request) {
+        $data = $request->all();
+        
+        $request->validate([
+            'nome' => 'required',
             'qtd' => 'required',
             'preco' => 'required',
-            'foto' => 'required',
+            
         ]);
-        
-        if ($produto) {
-            \Session::flash('msg', "O produto {$produto->nome} foi  adcionado");
-        } else {
-            \Session::flash('msg', "O produto {$produto->nome} não foi salvo no banco de dados");
+
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->foto->store('produto');
+        }else{
+            $data['foto'] = "produto/padrao.jpg";
         }
-        return redirect()->route("produto.index");
+            
+        if (Produto::create($data)){
+            return redirect()->route("produto.create")->with('msg', ["o produto {$request->nome} foi cadastrado com secesso", 'blue']);
+        }else {
+            return redirect()->route("produto.create")->with('msg', ["o produto {$request->nome} foi cadastrado com secesso", 'red']);
+        }
     }
 
     /**
@@ -60,8 +62,7 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
-    {
+    public function show(Produto $produto) {
         return view('produtos.show', ['produto' => $produto]);
     }
 
@@ -71,8 +72,7 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produto $produto)
-    {
+    public function edit(Produto $produto) {
         return view('produtos.edit', ['produto' => $produto]);
     }
 
@@ -83,8 +83,7 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
-    {
+    public function update(Request $request, Produto $produto) {
         $produto->update($request->all());
 
         $msg = "produto {$produto->nome} alterado com sucesso";
@@ -98,7 +97,7 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produto $produto){
+    public function destroy(Produto $produto) {
 
 
         $nome = $produto->nome;
@@ -108,15 +107,16 @@ class ProdutoController extends Controller
             \Session::flash('msg', "O produto {$nome} não foi removido");
         }
         return redirect()->route("produto.index");
-    
     }
+
     public function search(Request $request) {
         if ($request->nome) {
             $produto = (new Produto())->buscaPorNome($request->nome);
         } else {
             $produto = Produto::all();
         }
-        
+
         return view('produtos.produto', ['produto' => $produto]);
     }
-    }
+
+}

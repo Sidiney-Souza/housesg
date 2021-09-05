@@ -16,6 +16,7 @@
          Preço: {{$produto->preco}} - 
         <a href='{{route('produto.show', ['produto'=>$produto])}}'>Detalhes</a>
         <a href='{{route('produto.edit', ['produto'=>$produto])}}'>Editar</a>
+        <img width="40px" src="{{asset("storage/". $produto->foto)}}">
         <br>
         <form method="post" action="{{route('produto.destroy', ['produto'=>$produto])}}">
             @csrf
