@@ -21,7 +21,7 @@ and open the template in the editor.
             Preço:
             <input type="number" step='0.01' name="preco" value="{{$produto->preco}}"><br>
             Foto:
-            <input type="text" name="foto"value="{{$produto->foto}}"><br>
+            <input type="file" name="foto"><br>
             <input type="submit" name="Salvar"><br>
         </form>
             
