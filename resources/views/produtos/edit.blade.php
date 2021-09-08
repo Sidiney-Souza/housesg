@@ -20,6 +20,8 @@ and open the template in the editor.
             <input type="number" name="qtd" value="{{$produto->qtd}}"><br>
             Preço:
             <input type="number" step='0.01' name="preco" value="{{$produto->preco}}"><br>
+            Descrição do produto:
+            <input type="textarea" name="descricao" value="{{$produto->descricao}}"><br>
             Foto:
             <input type="file" name="foto"><br>
             <input type="submit" name="Salvar"><br>

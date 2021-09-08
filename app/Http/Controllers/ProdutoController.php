@@ -43,6 +43,7 @@ class ProdutoController extends Controller {
             'nome' => 'required',
             'qtd' => 'required',
             'preco' => 'required',
+            'descricao' => 'required',
             
         ]);
 

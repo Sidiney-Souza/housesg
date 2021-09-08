@@ -19,7 +19,9 @@ class Produto extends Model
         'nome',
         'qtd',
         'preco',
+        'descricao',
         'foto',
+        
     ];
     
     public function buscaPorNome(string $nome = '') {
