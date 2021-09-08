@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Alteralção do produto{{$produto->nome}}</h1>
-        <form action="{{route('produto.update', ['produto'=>$produto])}}" method="POST" >
+        <form action="{{route('produto.update', ['produto'=>$produto])}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PATCH')
             Nome:

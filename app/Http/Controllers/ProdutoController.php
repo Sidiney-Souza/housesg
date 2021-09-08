@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+use function PHPUnit\Framework\returnSelf;
 
 class ProdutoController extends Controller {
 
@@ -63,7 +66,10 @@ class ProdutoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Produto $produto) {
-        return view('produtos.show', ['produto' => $produto]);
+        
+        $produto->foto = (!empty($produto->foto ))?asset('storage/'. $produto->foto):asset('storage/produto/padrao.png');
+        return view('produtos.show', ["produto" => $produto]);
+
     }
 
     /**
@@ -73,7 +79,9 @@ class ProdutoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Produto $produto) {
+       
         return view('produtos.edit', ['produto' => $produto]);
+
     }
 
     /**
@@ -83,13 +91,34 @@ class ProdutoController extends Controller {
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
+    public static function emptyField($field, $data)
+    {
+        if($field == null)
+            return $data;
+        return $field;
+    }
+    
     public function update(Request $request, Produto $produto) {
-        $produto->update($request->all());
+        
+        $data = $request->all();
+
+        if($request->hasFile('foto') && $request->foto->isValid()){
+
+            if($produto->foto && Storage::exists($produto->foto)) {
+                Storage::delete($produto->foto);
+            }
+                $data['foto'] = $request->foto->store('produto');
+ 
+        }
+
+        $produto->update($data);
 
         $msg = "produto {$produto->nome} alterado com sucesso";
 
         return redirect()->route("produto.index")->with('msg', $msg);
     }
+    
+    
 
     /**
      * Remove the specified resource from storage.
