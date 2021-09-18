@@ -51,20 +51,17 @@
                 </div>
     </nav>
 
-    <div class="ok"><center>
-        <br>Welcome
-    </div></center>
 
-<style>
-    .ok{
-        font-size: 7em; 
-    }
-</style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
-integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+        
+        <div class="produto">
+        @foreach ($produto as $produto)
 
+            
+            <img width="150px" src="{{ asset('storage/' . $produto->foto) }}"><br>
+            {{ $produto->nome }}<br>
+            Preço: {{ $produto->preco }}<br>
+            <a href='{{ route('produto.show', ['produto' => $produto]) }}'>Detalhes</a>
+    </div>
+    @endforeach
+</body>
