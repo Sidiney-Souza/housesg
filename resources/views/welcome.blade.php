@@ -36,13 +36,13 @@
                         @if (Route::has('login'))
                             <div>
                                 @auth
-                                    <a href="{{ url('/dashboard') }}">Dashboard</a>
+                                    <a href="{{ url('/dashboard') }}"class="btn btn-dark">My Profile</a>
                                 @else
 
-                                    <a href="{{ route('login') }}" class="btn btn-dark">Long in</a>
+                                    <a href="{{ route('login') }}" class="btn btn-light">Long in</a>
 
                                     @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="btn btn-light">Register</a>
+                                        <a href="{{ route('register') }}" class="btn btn-dark">Register</a>
                                     @endif
                                 @endauth
                             </div>
@@ -50,9 +50,9 @@
                     </div>
                 </div>
     </nav>
-
+ 
     <div class="ok"><center>
-        <br>Welcome
+        <br>Welcome!
     </div></center>
 
 <style>

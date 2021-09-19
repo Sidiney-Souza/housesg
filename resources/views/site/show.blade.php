@@ -17,7 +17,7 @@ and open the template in the editor.
         Preço: {{$produto->preco}}<br>
         Descrição do produto: {{$produto->descricao}}<br>
         Foto:<br><img width="300px" src="{{$produto->foto}}"><br>
+        <a href='{{route('produtos.index')}}'>Back</a>
         <br><br>
-        <a href='{{route('produto.index')}}'>Voltar</a>
     </body>
 </html>

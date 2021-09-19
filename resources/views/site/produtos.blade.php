@@ -28,7 +28,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ '/housesg/public' }}">House's G</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{'produtos'}}">Produtos</a>
+                        <a class="nav-link" href="{{ 'produtos' }}">Produtos</a>
                     </li>
                 </ul>
                 <div>
@@ -36,13 +36,13 @@
                         @if (Route::has('login'))
                             <div>
                                 @auth
-                                    <a href="{{ url('/dashboard') }}">Dashboard</a>
+                                    <a href="{{ url('/dashboard') }}" class="btn btn-dark">My Profile</a>
                                 @else
 
-                                    <a href="{{ route('login') }}" class="btn btn-dark">Long in</a>
+                                    <a href="{{ route('login') }}" class="btn btn-light">Long in</a>
 
                                     @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="btn btn-light">Register</a>
+                                        <a href="{{ route('register') }}" class="btn btn-dark">Register</a>
                                     @endif
                                 @endauth
                             </div>
@@ -53,15 +53,34 @@
 
 
 
-        
-        <div class="produto">
-        @foreach ($produto as $produto)
 
-            
-            <img width="150px" src="{{ asset('storage/' . $produto->foto) }}"><br>
-            {{ $produto->nome }}<br>
-            Preço: {{ $produto->preco }}<br>
-            <a href='{{ route('produto.show', ['produto' => $produto]) }}'>Detalhes</a>
+
+    <div class="container">
+        <center><h1><br>Melhor lugar não há.</h1><br></center>
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="width: 50rem;">
+            @foreach ($produto as $produto)
+                <div class="col">
+                    <div class="card h-100">
+                        <img class="card-img-top" width="10px" src="{{ asset('storage/' . $produto->foto) }}"><br>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $produto->nome }} R${{ $produto->preco }}</h5>
+                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Buy now</a>
+                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Add to cart</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">{{ $produto->created_at }}</small>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-    @endforeach
+
+
+
+
 </body>
+
+</div>
+</div>
+</div>

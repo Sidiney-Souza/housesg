@@ -34,7 +34,7 @@ class ProdutoPageController extends Controller {
     public function show(Produto $produto) {
         
         $produto->foto = (!empty($produto->foto ))?asset('storage/'. $produto->foto):asset('storage/produto/padrao.png');
-        return view('produtos.show', ["produto" => $produto]);
+        return view('site.show', ["produto" => $produto]);
 
     }
 
