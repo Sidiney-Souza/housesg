@@ -47,7 +47,7 @@ class ProdutoPageController extends Controller {
             $produto = Produto::all();
         }
 
-        return view('produtos.produto', ['produto' => $produto]);
+        return view('site.produtos', ['produto' => $produto]);
     }
 
 }

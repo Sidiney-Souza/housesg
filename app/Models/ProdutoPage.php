@@ -10,7 +10,7 @@ class Produto extends Model
     use HasFactory;
     
     
-    public function buscaPorNome(string $nome = '') {
+    public function buscaPeloCliente(string $nome = '') {
         return $this->where('nome', 'like', "%$nome%")->get();
     }
     

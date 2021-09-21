@@ -31,6 +31,13 @@
                         <a class="nav-link" href="{{'produtos'}}">Produtos</a>
                     </li>
                 </ul>
+                <div class="search">
+                    <form action="{{ route('produtos.search') }}" method="POST" class="d-flex">
+                        @csrf
+                        <input class="form-control me-2" type="search" name="nome" placeholder="Busca por produtos" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>&nbsp;
+                    </form>
+                </div>
                 <div>
                     <div class="d-flex">
                         @if (Route::has('login'))
@@ -60,7 +67,12 @@
         font-size: 7em; 
     }
 
-
+    .search{
+        padding-top: 12px ;
+        margin: none;
+        
+        bor
+    }
 
     
 </style>

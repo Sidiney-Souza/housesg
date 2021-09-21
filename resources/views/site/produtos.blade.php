@@ -32,7 +32,15 @@
                     </li>
                 </ul>
                 <div>
+                    
                     <div class="d-flex">
+                        <div class="search">
+                            <form action="{{ route('produtos.search') }}" method="POST" class="d-flex">
+                                @csrf
+                                <input class="form-control me-2" type="search" name="nome" placeholder="Busca por produtos" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>&nbsp;
+                            </form>
+                        </div>
                         @if (Route::has('login'))
                             <div>
                                 @auth
@@ -92,6 +100,7 @@
         }
 
 
+    }
     </style>
     <center>
         <footer class="footer">

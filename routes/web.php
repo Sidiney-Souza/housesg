@@ -33,6 +33,7 @@ require __DIR__.'/auth.php';
 
 
 Route::post('produto/search', [ProdutoController::class, 'search'])->name('produto.search');
+Route::post('produtos/search', [ProdutoPageController::class, 'search'])->name('produtos.search');
 Route::post('user/search', [UserController::class, 'search'])->name('user.search');
 
 
