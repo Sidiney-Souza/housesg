@@ -59,7 +59,43 @@
     .ok{
         font-size: 7em; 
     }
+
+
+
+    
 </style>
+
+<br><br><br><br><br><br>
+<br><br><br>
+<style>
+    .footer {
+        background-color: #191919;
+        
+    }
+
+    .li {
+         list-style-type: none;
+    }
+
+
+</style>
+<center>
+    <footer class="footer">
+        <br><br>
+        <nav>
+            <ul>
+                <li class="li"><a href="#">About the site</a></li>
+                <li class="li"><a href="#">Facebook</a></li>
+                <li class="li"><a href="#">Number for contact</a></li>
+            </ul>
+        </nav>
+        <div style="color:white;">
+            <small >Copyright © 2021 </small>
+        </div>
+        <br><br><br>
+    </footer>
+</center>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

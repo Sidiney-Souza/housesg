@@ -47,6 +47,7 @@
                                 @endauth
                             </div>
                         @endif
+                        
                     </div>
                 </div>
     </nav>
@@ -56,7 +57,9 @@
 
 
     <div class="container">
-        <center><h1><br>Melhor lugar não há.</h1><br></center>
+        <center>
+            <h1><br>Melhor lugar não há.</h1><br>
+        </center>
         <div class="row row-cols-1 row-cols-md-3 g-4" style="width: 50rem;">
             @foreach ($produto as $produto)
                 <div class="col">
@@ -64,8 +67,10 @@
                         <img class="card-img-top" width="10px" src="{{ asset('storage/' . $produto->foto) }}"><br>
                         <div class="card-body">
                             <h5 class="card-title">{{ $produto->nome }} R${{ $produto->preco }}</h5>
-                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Buy now</a>
-                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Add to cart</a>
+                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Buy
+                                now</a>
+                            <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Add
+                                to cart</a>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">{{ $produto->created_at }}</small>
@@ -75,10 +80,35 @@
             @endforeach
         </div>
     </div>
+    <br><br><br>
+    <style>
+        .footer {
+            background-color: #191919;
+            
+        }
+
+        .li {
+             list-style-type: none;
+        }
 
 
-
-
+    </style>
+    <center>
+        <footer class="footer">
+            <br><br>
+            <nav>
+                <ul>
+                    <li class="li"><a href="#">About the site</a></li>
+                    <li class="li"><a href="#">Facebook</a></li>
+                    <li class="li"><a href="#">Number for contact</a></li>
+                </ul>
+            </nav>
+            <div style="color:white;">
+                <small >Copyright © 2021 </small>
+            </div>
+            <br><br><br>
+        </footer>
+    </center>
 </body>
 
 </div>
