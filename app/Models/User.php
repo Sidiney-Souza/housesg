@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,12 +12,17 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+    public function produtos(){
+        return $this->belongsToMany(Produto::class, 'produtos_users');
+    }
+    
     protected $fillable = [
         'name',
         'idade',
@@ -49,5 +55,6 @@ class User extends Authenticatable
         public function buscaPorNome(string $name = '') {
         return $this->where('name', 'like', "%$name%")->get();
     }
-    
+
+
 }
