@@ -10,6 +10,11 @@ class Produto extends Model
     use HasFactory;
     
         
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
         /**
      * The attributes that are mass assignable.
      *

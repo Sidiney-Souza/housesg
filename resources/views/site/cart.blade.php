@@ -32,6 +32,7 @@
                     </li>
                 </ul>
                 <div>
+
                     <div class="d-flex">
                         <div class="search">
                             <form action="{{ route('produtos.search') }}" method="POST" class="d-flex">
@@ -60,64 +61,3 @@
                 </div>
     </nav>
     <br><br>
-
-
-
-
-
-    <div class="container">
-
-        <div class="card w-75">
-            <div class="card-body">
-                <h5 class="card-title">{{ $produto->nome }}</h5>
-                <p class="card-text">
-                    <b>Quantidade:</b> {{ $produto->qtd }}<br>
-                    <b>R$</b> {{ $produto->preco }}<br>
-                    <b>Descrição:</b><br> {{ $produto->descricao }}<br>
-                    <br><img width="300px" src="{{ $produto->foto }}"><br>
-                </p>
-                <a href="#" class="btn btn-primary">Buy now</a>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-    </div>
-    <a class="btn btn-primary" href='{{ route('produtos.index') }}'>Back</a>
-    <br><br>
-
-
-    <br><br><br>
-    <style>
-        .footer {
-            background-color: #191919;
-
-        }
-
-        .li {
-            list-style-type: none;
-        }
-
-
-        }
-
-    </style>
-    <center>
-        <footer class="footer">
-            <br><br>
-            <nav>
-                <ul>
-                    <li class="li"><a href="#">About the site</a></li>
-                    <li class="li"><a href="#">Facebook</a></li>
-                    <li class="li"><a href="#">Number for contact</a></li>
-                </ul>
-            </nav>
-            <div style="color:white;">
-                <small>Copyright © 2021 </small>
-            </div>
-            <br><br><br>
-        </footer>
-    </center>
-</body>
-
-</div>
-</div>
-</div>

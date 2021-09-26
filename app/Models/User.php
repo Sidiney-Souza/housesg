@@ -12,17 +12,18 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
 
-    public function produtos(){
-        return $this->belongsToMany(Produto::class, 'produtos_users');
+    public function cart()
+    {
+        return $this->belongsToMany('App\Model\Produtos');
     }
-    
+
     protected $fillable = [
         'name',
         'idade',
@@ -51,10 +52,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-        public function buscaPorNome(string $name = '') {
+
+    public function buscaPorNome(string $name = '')
+    {
         return $this->where('name', 'like', "%$name%")->get();
     }
-
-
 }

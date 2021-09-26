@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ProdutoPageController;
 use App\Http\Controllers\UserController;
+use App\Models\Produto;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,7 @@ Route::get('admin', function(){
 Route::get('sem_permissao', function(){
     return view('sem_permissao');
 })->name('sem_permissao');
+
+
+Route::resource('/cart', CartController::class)->middleware('auth');
+

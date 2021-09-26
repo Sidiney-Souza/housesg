@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -149,4 +151,7 @@ class ProdutoController extends Controller {
         return view('produtos.produto', ['produto' => $produto]);
     }
 
+
+
+    
 }

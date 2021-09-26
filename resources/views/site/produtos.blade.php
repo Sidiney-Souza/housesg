@@ -4,6 +4,7 @@
     <title>
         House's G
     </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
@@ -32,9 +33,10 @@
                     </li>
                 </ul>
                 <div>
-                    
                     <div class="d-flex">
+                        <a href="{{route('cart.index')}}" class="material-icons" id="logcart">shopping_cart</a>
                         <div class="search">
+                            <a href="{{route('cart.index')}}" ></a>
                             <form action="{{ route('produtos.search') }}" method="POST" class="d-flex">
                                 @csrf
                                 <input class="form-control me-2" type="search" name="nome" placeholder="Busca por produtos" aria-label="Search">
@@ -57,6 +59,7 @@
                         @endif
                         
                     </div>
+
                 </div>
     </nav>
 
@@ -76,7 +79,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $produto->nome }} R${{ $produto->preco }}</h5>
                             <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Buy
-                                now</a>
+                                </a>
                             <a class="btn btn-danger" href='{{ route('produtos.show', ['produto' => $produto]) }}'>Add
                                 to cart</a>
                         </div>
@@ -99,8 +102,12 @@
              list-style-type: none;
         }
 
-
-    }
+        
+        #logcart {
+            color: black;
+            margin-right: 12px ;
+            margin-top: 10px ;
+        }
     </style>
     <center>
         <footer class="footer">
